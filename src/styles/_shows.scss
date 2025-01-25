@@ -35,9 +35,11 @@
             background: none;
             margin: 0 1vw;
             text-transform: uppercase;
+            border-bottom: 5px solid transparent;
+            cursor: pointer;
 
             &--is-active {
-                border-bottom: 5px solid variable.$textColorSec;
+                border-color: variable.$textColorSec;
             }
         }
     }
