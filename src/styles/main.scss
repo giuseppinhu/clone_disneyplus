@@ -5,6 +5,7 @@
 @use 'available-devices';
 @use 'faq';
 @use 'footer';
+@use 'header';
 
 @font-face {
     font-family: Avenir;
@@ -37,14 +38,26 @@ body {
 
 .text--big {
     @include text(18px);
+
+    @media (max-width: 768px) {
+        @include text(15px);
+    }
 }
 
 .text {
     @include text;
+
+    @media (max-width: 768px) {
+        @include text(14px);
+    }
 }
 
 .text--small {
     @include text(12px);
+
+    @media (max-width: 768px) {
+        @include text(11px);
+    }
 }
 
 .link-text {
@@ -55,27 +68,66 @@ body {
 
 .title--big {
     @include title(40px);
+
+    @media (max-width: 768px) {
+        @include title(26px);
+    }
 }
 
 .title {
     @include title;
+
+    @media (max-width: 768px) {
+        @include title(24px);
+    }
 }
 
 .title--small {
     @include title(28px);
+
+    @media (max-width: 768px) {
+        @include title(22px);
+    }
 }
 
 .button {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 60px;
     font-size: 18px;
     color: variable.$textColorSec;
-    background-color: #6421ff;
+    background-color: variable.$buttonPrimary;
     text-transform: uppercase;
     border-radius: 4px;
-    margin-top: 2vw;
-    margin-bottom: 8px;
+    text-decoration: none;
+    padding: 8px 14px;
+    letter-spacing: 1px;
+    border: 1px solid variable.$buttonPrimary;
+
+    &:hover {
+        background-color: lighten(variable.$buttonPrimary, 3%);
+    }
+
+    &--secondary {
+        background-color: variable.$buttonSecondary;
+        border-color: variable.$buttonSecondary;
+
+        &:hover {
+            background-color: (variable.$buttonSecondary, 3%);
+        }
+    }
+
+    &--dark {
+        background-color: rgba(variable.$buttonDarker, 0.8);
+        border-color: variable.$textColorSec;
+
+        &:hover {
+            background-color: variable.$textColorSec;
+            color: variable.$bgColor;
+        }
+    }
 }
 
 .image-text-section {
@@ -83,6 +135,10 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
 
     img {
         max-width: 100%;
@@ -113,6 +169,13 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: center;
+
+            @media (max-width: 768px) {
+                position: relative;
+                width: 100%;
+                left: 0;
+            }
+        
         }
     }
 }

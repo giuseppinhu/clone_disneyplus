@@ -1,7 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('[data-tab-button]');
-    const question = document.querySelectorAll('[data-faq-question]')
+    const question = document.querySelectorAll('[data-faq-question]');
 
+    const heroSection = document.querySelector('.hero');
+    const heigtHero = heroSection.clientHeight;
+
+    window.addEventListener('scroll', function() {
+       const positionScroll = window.scrollY;
+
+       if (positionScroll < heigtHero) {
+            hiddenHeaderElements();
+       } else {
+        displayHeaderElements();
+       }
+    });
+
+    // SECTION TABS
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', function(event) {
             const tabTarget = event.target.dataset.tabButton;
@@ -16,10 +30,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Code Programation FAQ
     for (let i = 0; i < question.length; i++) {
         question[i].addEventListener('click', OpenClose);
     }
 })
+
+function hiddenHeaderElements(){
+    const header = document.querySelector('header');
+    header.classList.add('header--is-hidden')
+}
+
+function displayHeaderElements(){
+    const header = document.querySelector('header');
+    header.classList.remove('header--is-hidden')
+}
 
 function OpenClose(element) {
     const class1 = 'faq__questions__item--is-open';
@@ -27,7 +52,6 @@ function OpenClose(element) {
     
     elementDad.classList.toggle(class1)
 }
-
 
 
 function removeButtonActive() {
