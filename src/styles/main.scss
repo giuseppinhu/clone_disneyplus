@@ -115,7 +115,7 @@ body {
         border-color: variable.$buttonSecondary;
 
         &:hover {
-            background-color: (variable.$buttonSecondary, 3%);
+            background-color: lighten(variable.$buttonSecondary, 3%);
         }
     }
 
