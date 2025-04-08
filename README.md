@@ -11,7 +11,7 @@
 
 ### Como acessar:
 
-  ▶︎  Acesse o [site do Restaurante Ratatouille](https://clone-disneyplus-pi-plum.vercel.app/).
+  ▶︎  Acesse o [site Clone do DisneyPlus](https://clone-disneyplus-pi-plum.vercel.app/).
 
 ## Tecnologias utilizadas
 
